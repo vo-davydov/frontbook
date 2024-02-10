@@ -30,15 +30,7 @@ const BooksComponent = () => {
 
     const editBook = async (bookData) => {
         try {
-            let book = {
-                id: bookData.id,
-                name: bookData.name,
-                authorName: bookData.author.name,
-                genreName: bookData.genre.name,
-                authorId: bookData.author.id
-            }
-
-            await axios.put('/api/books/', book);
+            await axios.put('/api/books/', bookData);
             fetchBooks();
             setSelectedBook(null);
         } catch (error) {
